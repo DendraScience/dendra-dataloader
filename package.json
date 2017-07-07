@@ -1,0 +1,43 @@
+{
+  "name": "@dendra-science/dataloader",
+  "version": "0.0.1",
+  "description": "Utility class for fetching data based on configured sources.",
+  "license": "BSD-2-Clause-FreeBSD",
+  "author": "J. Scott Smith <scott@newleafsolutionsinc.com>",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DendraScience/dendra-dataloader.git"
+  },
+  "scripts": {
+    "babel": "babel src -d dist",
+    "build": "npm run lint && npm run clean && npm run babel",
+    "clean": "rm -rf dist/*",
+    "lint": "eslint src",
+    "lint-test": "eslint test",
+    "test": "npm run lint-test && NODE_ENV=test mocha test --recursive --use_strict",
+    "test:build": "npm run build && npm run test",
+    "test:watch": "chokidar --initial 'src/**/*.js' 'test/**/*.js' -c 'npm run test:build'"
+  },
+  "engines": {
+    "node": ">=6.11.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "chai": "^4.0.2",
+    "eslint": "^4.1.1",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-node": "^5.1.0",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "mocha": "^3.4.2"
+  },
+  "optionalDependencies": {
+    "fsevents": "^1.0.0"
+  }
+}
